@@ -5,6 +5,8 @@
 #         self.left = None
 #         self.right = None
 
+# 不符合题目空间要求
+
 class BSTIterator:
 
     def __init__(self, root: TreeNode):
