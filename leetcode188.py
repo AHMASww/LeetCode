@@ -3,6 +3,11 @@
 通过枚举状态来遍历所有情况
 当k > len(prices)//2时，意味着k已经没有限制了，可以转为贪心算法：
     假设第一天买，第二天卖，以此循环，最多也是len(prices)//2的数量
+
+状态转移方程：
+    d代表天数；t表示次数（这里以购入时次数+1）；最后一维0表示未持有股票，1表示持有股票
+    P[d][t][0] = max(P[d-1][t][0], P[d-1][t][1]+prices[d-1])
+    P[d][t][1] = max(P[d-1][t][1], P[d-1][t-1][0]-prices[d-1])
 '''
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
